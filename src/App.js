@@ -7,10 +7,10 @@ import EditWorkouts from './pages/EditWorkouts';
 import Confirmation from './pages/Confirmation';
 import { useState, useEffect } from "react";
 import {useNavigate} from "react-router-dom"
+import { apiUrl } from './utils/constants';
 import jwt from "jsonwebtoken"
 
 function App() {
-  const { apiUrl } = require('./utils/constants');
 
   const navigate = useNavigate()
 
@@ -18,20 +18,16 @@ function App() {
   const [workouts, setWorkouts] = useState([])
   const [userData, setUserData] = useState([])
 
-  // console.log("authenticatedUser: ", authenticatedUser)
-
   function fetchauthenticatedUser() {
     fetch(`${apiUrl}/signup`)
       .then((res) => res.json())
       .then((authenticatedUserData) => {
-        // console.log("authenticatedUser data: ", authenticatedUserData)
         setAuthenticatedUser(authenticatedUserData)
       });
   }
 
   useEffect(() => {
     const token = localStorage.getItem("token")
-    // console.log("This is the token: ", token)
     if(token) {
       const decodedToken = jwt.decode(token)
       console.log("decoded token: ", decodedToken)
