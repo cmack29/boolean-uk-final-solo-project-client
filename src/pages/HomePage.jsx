@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useNavigate} from "react-router-dom"
+import { apiUrl } from "../utils/constants";
 import jwt from "jsonwebtoken"
 import '../App.css';
 
@@ -8,8 +9,6 @@ export default function HomePage(props) {
     const { setAuthenticatedUser, setUserData } = props
 
     const navigate = useNavigate()
-
-    const { apiUrl } = require('../utils/constants');
 
     const [user, setUser] = useState({
         userName: "",
@@ -30,8 +29,6 @@ export default function HomePage(props) {
         fetch(`${apiUrl}/signup`, fetchOptions)
         .then((res) => res.json())
         .then((token) => {
-            // console.log("token", token)
-
             if (token) {
                 setAuthenticatedUser(token.token)
                 localStorage.setItem("token", token.token)
@@ -59,8 +56,6 @@ export default function HomePage(props) {
           fetch(`${apiUrl}/signin`, fetchOptions)
           .then((res) => res.json())
           .then((token) => {
-            //   console.log("token", token)
-
               if (token) {
                 setAuthenticatedUser(token.token)
                 localStorage.setItem("token", token.token)
@@ -78,7 +73,6 @@ export default function HomePage(props) {
     const handleChange = event => {
         const name = event.target.name
         const value = event.target.value
-
         setUser({ ...user, [name]: value })
     }
 
