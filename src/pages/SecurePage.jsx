@@ -1,11 +1,9 @@
 import {useNavigate, Link, useParams} from "react-router-dom"
 import { useEffect, useState } from "react";
+import { apiUrl } from "../utils/constants";
 import '../App.css';
 
 export default function SecurePage (props) {
-
-    const { apiUrl } = require('../utils/constants');
-    // const { difficulties } = require('../utils/constants');
 
     const { authenticatedUser, workouts, userData, setAuthenticatedUser } = props
 
