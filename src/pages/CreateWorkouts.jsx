@@ -1,13 +1,12 @@
 import {useNavigate} from "react-router-dom"
 import { useEffect, useState } from "react";
+import { apiUrl } from "../utils/constants";
 
 export default function CreateWorkouts(props) {
 
     const { authenticatedUser, workouts, setWorkouts } = props
 
     const navigate = useNavigate()
-
-    const { apiUrl } = require('../utils/constants');
 
     console.log("Workouts on the create page: ", workouts)
 
@@ -23,19 +22,16 @@ export default function CreateWorkouts(props) {
 
     const handleDate = (event) => {
         event.preventDefault()
-
         setDate(event.target.value)
     }
 
     const handleDescription = (event) => {
         event.preventDefault()
-
         setDescription(event.target.value)
     }
 
     const handleDifficulty = (event) => {
         event.preventDefault()
-
         setDifficulty(event.target.value)
     }
 
