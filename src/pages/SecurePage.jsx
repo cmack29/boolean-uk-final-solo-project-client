@@ -74,7 +74,6 @@ export default function SecurePage (props) {
             <ul className="secure-form-grid">
             {filteredWorkout.map((workout, index) => {
                 const { date, description, difficulty, id, users } = workout
-                // console.log("work: ", workout)
                 return(
                     <>
                     <li key={index}>
