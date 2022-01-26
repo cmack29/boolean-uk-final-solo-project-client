@@ -24,7 +24,7 @@ export default function Confirmation(props) {
     function returnToSecure() {
         navigate('/securepage')
     }
-    console.log("ccc", userData)
+    console.log("data", userData)
 
 
     return(
