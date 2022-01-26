@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { apiUrl } from "../utils/constants";
 
 export default function EditWorkouts(props) {
 
@@ -20,10 +21,6 @@ export default function EditWorkouts(props) {
         return workout.id === parseInt(workoutId)
     })
 
-    const { apiUrl } = require('../utils/constants');
-
-    // console.log("Workouts on the edit page: ", workouts)
-
     const [workoutToEdit, setWorkoutToEdit] = useState(foundWorkout)
     const [date, setDate] = useState(new Date().toDateString())
     const [description, setDescription] = useState(workoutToEdit.description)
@@ -31,19 +28,16 @@ export default function EditWorkouts(props) {
 
     const handleDate = (event) => {
         event.preventDefault()
-
         setDate(event.target.value)
     }
 
     const handleDescription = (event) => {
         event.preventDefault()
-
         setDescription(event.target.value)
     }
 
     const handleDifficulty = (event) => {
         event.preventDefault()
-
         setDifficulty(event.target.value)
     }
 
